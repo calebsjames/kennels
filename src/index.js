@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
+import { Kennel } from "./components/Kennel"
 
 
-import { Kennel } from "./components/Kennel.js"
 ReactDOM.render(
   <React.StrictMode>
     <Kennel />
