@@ -1,7 +1,6 @@
 import React from "react"
-import "./Kennel.css"
-import "./animal/Animal.css"
 
+import "./animal/Animal.css"
 
 export const CustomerCard = ({customer}) => (
         <section className="customer">
@@ -9,6 +8,3 @@ export const CustomerCard = ({customer}) => (
             <div className="customer__locationId">{customer.locationId}</div>
         </section>
 )
-
-
-    
