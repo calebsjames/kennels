@@ -1,12 +1,12 @@
 import React from "react"
-import "./Kennel.css"
+import "../Kennel.css"
 import "./Employee.css"
 
 
 export const EmployeeCard = ({employee}) => (
         <section className="employee">
-            <h3 className="employee__name">{employee.nameFirst} {employee.nameLast}</h3>
-            <div className="employee__locationId">{employee.address}</div>
+            <h3 className="employee__name">{employee.name}</h3>
+            <div className="employee__locationId">{employee.locationId}</div>
         </section>
 )
 
