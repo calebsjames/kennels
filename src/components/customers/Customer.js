@@ -1,10 +1,9 @@
 import React from "react"
-
-import "./animal/Animal.css"
+import "./Customer.css"
 
 export const CustomerCard = ({customer}) => (
         <section className="customer">
-            <h3 className="customer__name">{customer.nameFirst} {customer.nameLast}</h3>
-            <div className="customer__locationId">{customer.locationId}</div>
+            <h3 className="customer__name">{customer.name}</h3>
+            <div className="customer__locationId">{customer.address}</div>
         </section>
 )
