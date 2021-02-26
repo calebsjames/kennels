@@ -1,6 +1,6 @@
 import React from "react"
 import "./Kennel.css"
-import "./animal/Animal.css"
+import "./Employee.css"
 
 
 export const EmployeeCard = ({employee}) => (
