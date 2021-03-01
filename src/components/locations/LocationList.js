@@ -6,12 +6,14 @@ import "./Location.css"
 export const LocationList = () => {
   
   // This state changes when `getLocations()` is invoked below
+  //getLocations is available because we import and use LocationContext?
   const { locations, getLocations } = useContext(LocationContext)
   
 
   //useEffect - get a global variable. What do you want and when do you want it
   useEffect(() => {
     console.log("LocationList: useEffect - getLocations")
+    //this is available because LocationContext is is imported and getLocations() is housed within LocationProvider() which returns <LocationContext.Provider>
     getLocations()
 
   }, [])

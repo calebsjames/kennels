@@ -1,9 +1,14 @@
 import React from "react"
 import "./Animal.css"
 
-export const AnimalCard = ({ animalInstance }) => (
+
+//animalInstance.location.name? Because expand in the provider. Not recommended.
+
+export const AnimalCard = ({ animalInstance, customer, location }) => (
     <section className="animal">
         <h3 className="animal__name">{animalInstance.name}</h3>
-        <address className="location__address">{animalInstance.location.name}</address>
+        
+        <div className="location__name">{location.name}</div>
+        <div className="owner__name">{customer.name}</div>
     </section>
 )

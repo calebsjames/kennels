@@ -1,6 +1,6 @@
 import React, { useState, createContext } from "react"
 
-// The context is imported and used by individual components that need data
+// The context is imported and used by individual components that need data. Makes a variable global.
 export const AnimalContext = createContext()
 
 // This component establishes what data can be used.
@@ -8,7 +8,7 @@ export const AnimalProvider = (props) => {
     const [animals, setAnimals] = useState([])
 
     const getAnimals = () => {
-        return fetch("http://localhost:8088/animals?_expand=location")
+        return fetch("http://localhost:8088/animals")
         .then(res => res.json())
         .then(setAnimals)
     }
