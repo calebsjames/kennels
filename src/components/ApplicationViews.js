@@ -11,7 +11,7 @@ import { LocationList } from "./locations/LocationList"
 import { LocationProvider } from "./locations/LocationProvider"
 
 
-
+//because ...List is a useContext, it must be wrapped in the provider that gives it the data
 export const ApplicationViews = () => {
     return (
         <>
@@ -22,10 +22,15 @@ export const ApplicationViews = () => {
 
             {/* Render the animal list when http://localhost:3000/animals */}
             <AnimalProvider>
-                <Route exact path="/animals">
-                    <AnimalList />
-                </Route>
+                <LocationProvider>
+                    <CustomerProvider>
+                        <Route exact path="/animals">
+                            <AnimalList />
+                        </Route>
+                    </CustomerProvider>
+                </LocationProvider>
             </AnimalProvider>
+
             {/* Render the customer list when http://localhost:3000/customers */}
             <CustomerProvider>
                 <Route exact path="/customers">
