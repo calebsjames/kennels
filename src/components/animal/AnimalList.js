@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { AnimalContext } from "./AnimalProvider"
 import { AnimalCard } from "./AnimalCard"
 import "./Animal.css"
@@ -15,28 +16,32 @@ export const AnimalList = () => {
   //In this case we are getting everything from all the dataProviders we are using
   //how does the order affect things?
   useEffect(() => {
-    getLocations()
+    getAnimals()
     .then(getCustomers)
-    .then(getAnimals)
+    .then(getLocations)
   }, [])
 
-
+  const history = useHistory()
+  
 
   //return HTML represention
   return (
-    <div className="animals">
-      {console.log("AnimalList: Render", animals)}
-      {
-        animals.map(animalObject => {
-          const owner = customers.find(c => c.id === animalObject.customerId)
-          const clinic = locations.find(l => l.id === animalObject.locationId)
-          {console.log("Clinic:", clinic)}
-          return <AnimalCard key={animalObject.id}
-                  location = {clinic}
-                  customer = {owner} 
-                  animalInstance={animalObject} />
-        })
-      }
-    </div>
+    <>
+      <h2>Animals</h2>
+          <button onClick={() => {history.push("animals/create")}}>
+        Add Animal
+      </button>
+      <div className="animals">
+        {animals.map(animalObject => {
+            const owner = customers.find(c => c.id === animalObject.customerId)
+            const clinic = locations.find(l => l.id === animalObject.locationId)            
+            return <AnimalCard key={animalObject.id}
+                    location = {clinic}
+                    customer = {owner} 
+                    animalInstance={animalObject} />
+          })
+        }
+      </div>
+    </>
   )
 }

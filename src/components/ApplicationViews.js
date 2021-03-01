@@ -9,6 +9,7 @@ import { EmployeeList } from "./employees/EmployeeList"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
 import { LocationList } from "./locations/LocationList"
 import { LocationProvider } from "./locations/LocationProvider"
+import { AnimalForm } from "./animal/AnimalForm"
 
 
 //because ...List is a useContext, it must be wrapped in the provider that gives it the data
@@ -24,9 +25,16 @@ export const ApplicationViews = () => {
             <AnimalProvider>
                 <LocationProvider>
                     <CustomerProvider>
+
+                        {/* does the order it's wrapped in matter? */}
                         <Route exact path="/animals">
                             <AnimalList />
                         </Route>
+                        {/* both routes need to same data (customer/location) */}
+                        <Route exact path="/animals/create">
+                            <AnimalForm />
+                        </Route>
+
                     </CustomerProvider>
                 </LocationProvider>
             </AnimalProvider>
@@ -39,9 +47,11 @@ export const ApplicationViews = () => {
             </CustomerProvider>
             {/* Render the employee list when http://localhost:3000/employees */}
             <EmployeeProvider>
-                <Route exact path="/employees">
-                    <EmployeeList />
-                </Route>
+                <LocationProvider>
+                    <Route exact path="/employees">
+                        <EmployeeList />
+                    </Route>
+                </LocationProvider>
             </EmployeeProvider>
             {/* Render the location list when http://localhost:3000/locations */}
             <LocationProvider>
