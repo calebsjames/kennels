@@ -7,11 +7,9 @@ export const AnimalList = () => {
   // This state changes when `getAnimals()` is invoked below
   const { animals, getAnimals } = useContext(AnimalContext)
 
-  //useEffect - reach out to the world for something
+  //useEffect - reach out to the world for something. What do you want to do , when do you want to do it.
   useEffect(() => {
-    console.log("AnimalList: useEffect - getAnimals")
     getAnimals()
-
   }, [])
 
 
@@ -19,8 +17,8 @@ export const AnimalList = () => {
     <div className="animals">
       {console.log("AnimalList: Render", animals)}
       {
-        animals.map(animal => {
-          return <AnimalCard key={animal.id} animal={animal} />
+        animals.map(animalObject => {
+          return <AnimalCard key={animalObject.id} animalInstance={animalObject} />
         })
       }
     </div>
