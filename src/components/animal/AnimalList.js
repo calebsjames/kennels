@@ -16,9 +16,9 @@ export const AnimalList = () => {
   //In this case we are getting everything from all the dataProviders we are using
   //how does the order affect things?
   useEffect(() => {
-    getAnimals()
+    getLocations()
     .then(getCustomers)
-    .then(getLocations)
+    .then(getAnimals)
   }, [])
 
   const history = useHistory()
