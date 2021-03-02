@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from 'react-router-dom';
 import { LocationContext } from "../locations/LocationProvider"
-import { EmployeeContext } from "../employee/EmployeeProvider"
+import { EmployeeContext } from "./EmployeeProvider"
 import "./Employee.css"
 
 export const EmployeeForm = () => {
@@ -75,12 +75,7 @@ export const EmployeeForm = () => {
                   <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Employee name" value={employee.name}/>
               </div>
           </fieldset>
-          <fieldset>
-              <div className="form-group">
-                  <label htmlFor="breed">Employee breed:</label>
-                  <input type="text" id="breed" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Employee breed" value={employee.breed}/>
-              </div>
-          </fieldset>
+          
           <fieldset>
               <div className="form-group">
                   <label htmlFor="location">Assign to location: </label>
@@ -94,19 +89,7 @@ export const EmployeeForm = () => {
                   </select>
               </div>
           </fieldset>
-          <fieldset>
-              <div className="form-group">
-                  <label htmlFor="customerId">Customer: </label>
-                  <select defaultValue={employee.customerId} name="customer" id="customerId" onChange={handleControlledInputChange} className="form-control" >
-                      <option value="0">Select a customer</option>
-                      {customers.map(c => (
-                          <option key={c.id} value={c.id}>
-                              {c.name}
-                          </option>
-                      ))}
-                  </select>
-              </div>
-          </fieldset>
+          
           <button className="btn btn-primary"
             onClick={handleClickSaveEmployee}>
             Save Employee

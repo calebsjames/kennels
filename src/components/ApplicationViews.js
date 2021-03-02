@@ -10,6 +10,8 @@ import { EmployeeProvider } from "./employees/EmployeeProvider"
 import { LocationList } from "./locations/LocationList"
 import { LocationProvider } from "./locations/LocationProvider"
 import { AnimalForm } from "./animal/AnimalForm"
+import { EmployeeForm } from "./employees/EmployeeForm"
+
 
 
 //because ...List is a useContext, it must be wrapped in the provider that gives it the data
@@ -51,6 +53,9 @@ export const ApplicationViews = () => {
                     <Route exact path="/employees">
                         <EmployeeList />
                     </Route>
+                    <Route exact path="/employees/create">
+                            <EmployeeForm />
+                        </Route>
                 </LocationProvider>
             </EmployeeProvider>
             {/* Render the location list when http://localhost:3000/locations */}
