@@ -54,10 +54,10 @@ export const EmployeeForm = () => {
       event.preventDefault() //Prevents the browser from submitting the form
 
       const locationId = employee.locationId
-      const customerId = employee.customerId
+      
 
-      if (locationId === 0 || customerId === 0) {
-        window.alert("Please select a location and a customer")
+      if (locationId === 0) {
+        window.alert("Please select a location")
       } else {
         //invoke addEmployee passing employee as an argument.
         //once complete, change the url and display the employee list
