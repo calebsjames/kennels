@@ -33,7 +33,7 @@ export const LocationList = () => {
       {console.log("LocationList: Render", locations)}
       {
         locations.map(locationObject => {
-          {console.log(locationObject.animal)}
+          
           return <LocationCard key={locationObject.id} 
           location={locationObject} 
           animals = {locationObject.animals}

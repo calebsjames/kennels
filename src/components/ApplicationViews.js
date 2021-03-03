@@ -14,6 +14,7 @@ import { EmployeeForm } from "./employees/EmployeeForm"
 import { LocationForm } from "./locations/LocationForm"
 import { AnimalDetail } from "./animal/AnimalDetail"
 import { EmployeeDetail } from "./employees/EmployeeDetails"
+import { LocationDetail } from "./locations/LocationDetails"
 
 
 
@@ -77,6 +78,9 @@ export const ApplicationViews = () => {
                 <Route exact path="/locations/create">
                     <LocationForm />
                 </Route>
+                <Route exact path="/locations/detail/:locationId(\d+)">
+                        <LocationDetail />
+                    </Route>
             </LocationProvider>
         </>
     )
