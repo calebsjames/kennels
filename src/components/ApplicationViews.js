@@ -15,6 +15,7 @@ import { LocationForm } from "./locations/LocationForm"
 import { AnimalDetail } from "./animal/AnimalDetail"
 import { EmployeeDetail } from "./employees/EmployeeDetails"
 import { LocationDetail } from "./locations/LocationDetails"
+import { AnimalSearch } from "./animal/AnimalSearch"
 
 
 
@@ -36,6 +37,7 @@ export const ApplicationViews = () => {
 
                         {/* does the order it's wrapped in matter? */}
                         <Route exact path="/animals">
+                            <AnimalSearch />
                             <AnimalList />
                         </Route>
                         {/* both routes need to same data (customer/location) */}
