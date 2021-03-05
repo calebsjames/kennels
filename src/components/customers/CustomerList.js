@@ -6,14 +6,14 @@ import "./Customer.css"
 export const CustomerList = () => {
   // This state changes when `getCustomers()` is invoked below
   const { customers, getCustomers } = useContext(CustomerContext)
-
+  
   //useEffect - reach out to the world for something
   useEffect(() => {
     console.log("CustomerList: useEffect - getCustomers")
     getCustomers()
 
   }, [])
-
+  
 
   return (
     <div className="customers">

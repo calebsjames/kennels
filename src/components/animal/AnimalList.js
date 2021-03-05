@@ -5,17 +5,29 @@ import "./Animal.css"
 import { useHistory } from "react-router-dom"
 
 
-export const AnimalList = ({ history }) => {
-  const { getAnimals, animals } = useContext(AnimalContext)
+export const AnimalList = () => {
+    const { getAnimals, animals, searchTerms } = useContext(AnimalContext)
+    // Since you are no longer ALWAYS displaying all of the animals
+    const [ filteredAnimals, setFiltered ] = useState([])
+    const history = useHistory()
   
-  // Initialization effect hook -> Go get animal data
-  useEffect(()=>{
-    getAnimals()
-  }, [])
+    // Initialization effect hook -> Go get animal data
+    useEffect(()=>{
+      getAnimals()
+    }, [])
   
-  history = useHistory()
+    useEffect(() => {
+      if (searchTerms !== "") {
+        // If the search field is not blank, display matching animals
+        const subset = animals.filter(animal => animal.name.toLowerCase().includes(searchTerms))
+        setFiltered(subset)
+      } else {
+        // If the search field is blank, display all animals
+        setFiltered(animals)
+      }
+    }, [searchTerms, animals])
 
-    return (
+      return (
         <>
             <h1>Animals</h1>
 
@@ -24,7 +36,7 @@ export const AnimalList = ({ history }) => {
             </button>
             <div className="animals">
                 {
-                    animals.map(animalObject => {
+                    filteredAnimals.map(animalObject => {
                         return <AnimalCard key={animalObject.id} animalInstance={animalObject} />
                     })
                 }

@@ -11,6 +11,7 @@ export const Kennel = () => (
     <Route
       render={() => {
         if (localStorage.getItem("kennel_customer")) {
+        
           return (
             <>
               <NavBar />
