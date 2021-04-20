@@ -13,7 +13,7 @@ export const LocationProvider = (props) => {
     
     //normal get request
     const getLocations = () => {
-        return fetch("http://localhost:8088/locations?_embed=employees&_embed=animals")
+        return fetch("http://localhost:8088/locations")
         .then(res => res.json())
         //I don't understand this
         .then(setLocations)
@@ -32,7 +32,7 @@ export const LocationProvider = (props) => {
     }
 
     const getLocationById = (id) => {
-        return fetch(`http://localhost:8088/locations/${id}?_embed=employees&_embed=animals`)
+        return fetch(`http://localhost:8088/locations/${id}`)
             .then(res => res.json())
     }
 

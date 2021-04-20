@@ -17,7 +17,7 @@ export const EmployeeForm = () => {
 
     const [employee, setEmployee] = useState({
       name: "",
-      locationId: 0
+      location_id: 0
     });
 
     const history = useHistory();
@@ -53,10 +53,10 @@ export const EmployeeForm = () => {
     const handleClickSaveEmployee = (event) => {
       event.preventDefault() //Prevents the browser from submitting the form
 
-      const locationId = employee.locationId
+      const location_id = employee.location_id
       
 
-      if (locationId === 0) {
+      if (location_id === 0) {
         window.alert("Please select a location")
       } else {
         //invoke addEmployee passing employee as an argument.
@@ -79,7 +79,7 @@ export const EmployeeForm = () => {
           <fieldset>
               <div className="form-group">
                   <label htmlFor="location">Assign to location: </label>
-                  <select defaultValue={employee.locationId} name="locationId" id="locationId" onChange={handleControlledInputChange} className="form-control" >
+                  <select defaultValue={employee.location_id} name="location_id" id="location_id" onChange={handleControlledInputChange} className="form-control" >
                       <option value="0">Select a location</option>
                       {locations.map(l => (
                           <option key={l.id} value={l.id}>

@@ -11,7 +11,7 @@ export const EmployeeCard = ({employeeInstance, location}) => (
                 { employeeInstance.name }
                 </Link>
             </h3>
-            <div className="employee__location">{location.name}</div>
+            <div className="employee__location">{location?.name}</div>
         </section>
 )
 

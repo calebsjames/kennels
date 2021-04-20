@@ -83,7 +83,7 @@ export const ApplicationViews = () => {
                 <Route exact path="/locations/create">
                     <LocationForm />
                 </Route>
-                <Route exact path="/locations/detail/:locationId(\d+)">
+                <Route exact path="/locations/detail/:location_id(\d+)">
                         <LocationDetail />
                     </Route>
             </LocationProvider>

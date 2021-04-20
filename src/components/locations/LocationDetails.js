@@ -9,12 +9,12 @@ export const LocationDetail = () => {
 	const [location, setLocation] = useState({})
     console.log(location)
 
-	const {locationId} = useParams();
+	const {location_id} = useParams();
 
 
   useEffect(() => {
     
-    getLocationById(locationId)
+    getLocationById(location_id)
     .then((response) => {
       setLocation(response)
     })
